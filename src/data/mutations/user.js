@@ -25,10 +25,10 @@ const login = async (_, { email, password }) => {
 };
 
 // Create new user
-const createUser = async (_, { firstName, lastName, email, password }) => {
+const createUser = async (_, { first_name, last_name, email, password }) => {
   return await User.create({
-    firstName,
-    lastName,
+    first_name,
+    last_name,
     email,
     password: await bcrypt.hash(password, 10)
   });
@@ -37,7 +37,7 @@ const createUser = async (_, { firstName, lastName, email, password }) => {
 // Update a particular user
 const updateUser = async (
   _,
-  { id, firstName, lastName, email, password },
+  { id, first_name, last_name, email, password },
   { authUser }
 ) => {
   // Make sure user is logged in
@@ -48,8 +48,8 @@ const updateUser = async (
   const user = await User.findById(id);
   // Update the user
   await user.update({
-    firstName,
-    lastName,
+    first_name,
+    last_name,
     email,
     password: await bcrypt.hash(password, 10)
   });

@@ -9,9 +9,9 @@ const {
   allPosts,
   fetchPost,
   allTags,
-  fetchTag,
-  getPostsByUser
+  fetchTag
 } = require('./queries');
+
 const { login, createUser, updateUser } = require('./mutations/user');
 const { addPost, updatePost, deletePost } = require('./mutations/post');
 const { addTag, updateTag, deleteTag } = require('./mutations/tag');
@@ -39,8 +39,7 @@ const resolvers = {
   User: {
     // Fetch all posts created by a user
     async posts(user) {
-      //   return await user.getPosts();
-      return await getPostsByUser(user);
+      return await user.getPosts();
     }
   },
   Post: {

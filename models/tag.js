@@ -1,33 +1,29 @@
-module.exports = (sequelize, DataTypes) => {
-  var Tag = sequelize.define(
-    'Tag',
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-      },
-      name: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false
-      },
-      slug: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-      },
-      description: DataTypes.STRING
+const { sequelize, Sequelize } = require('./connection');
+
+const Tag = sequelize.define(
+  'Tag',
+  {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
     },
-    {
-      classMethods: {
-        associate: function(models) {
-          // A tag can have to many posts
-          Tag.belongsToMany(models.Post, { through: 'post_tag' });
-        }
-      }
-    }
-  );
-  return Tag;
-};
+    name: {
+      type: Sequelize.STRING,
+      unique: true,
+      allowNull: false
+    },
+    slug: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true
+    },
+    description: Sequelize.STRING
+  },
+  {
+    underscored: true
+  }
+);
+
+module.exports = Tag;
