@@ -1,0 +1,36 @@
+{
+  "name": "graphql-cms",
+  "version": "1.0.0",
+  "description": "API for a Blog CMS. The Blog comprises of three concept: Users, Posts and Tags. The CMS will handle creating and authenticating users (using JWT). Tags will be used as a taxonomy to group posts. A post belongs to many tags and a tag can have many posts. Authenticated users are able to perform CRUD tasks like creating posts and tags.",
+  "main": "src/index.js",
+  "repository": "git@github.com:saidur2k/graphql-cms.git",
+  "author": "Saidur Rahman <saidur2k@hotmail.com> (http://rudias.com/)",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint --ext .js ./",
+    "dev": "nodemon src/index.js",
+    "schema-dump": "pg_dump -s -O graphql_cms_dev > db.sql"
+  },
+  "dependencies": {
+    "apollo-server-express": "1.3.2",
+    "bcrypt": "1.0.3",
+    "body-parser": "1.18.2",
+    "dotenv": "4.0.0",
+    "express": "4.16.2",
+    "express-jwt": "5.3.0",
+    "graphql": "0.12.3",
+    "graphql-tools": "2.18.0",
+    "jsonwebtoken": "8.1.0",
+    "pg": "7.4.1",
+    "pg-hstore": "2.3.2",
+    "sequelize": "4.31.2",
+    "slugify": "1.2.9"
+  },
+  "devDependencies": {
+    "eslint": "4.16.0",
+    "eslint-plugin-prettier": "2.5.0",
+    "nodemon": "1.14.11",
+    "prettier": "1.10.2"
+  }
+}
