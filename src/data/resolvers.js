@@ -9,12 +9,9 @@ const {
   allPosts,
   fetchPost,
   allTags,
-  fetchTag,
-  getPostsForUser,
-  getUserByPost,
-  getTagsByPost,
-  getPostsByTag
+  fetchTag
 } = require('./queries');
+
 const { login, createUser, updateUser } = require('./mutations/user');
 const { addPost, updatePost, deletePost } = require('./mutations/post');
 const { addTag, updateTag, deleteTag } = require('./mutations/tag');
@@ -52,7 +49,6 @@ const resolvers = {
     },
     // Fetch alls tags that a post belongs to
     async tags(post) {
-      // return await post.getTags();
       return await post.getTags();
     }
   },
