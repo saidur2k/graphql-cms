@@ -13,21 +13,11 @@ const allTags = async () => await Tag.all();
 // Get a tag by it ID
 const fetchTag = async (_, { id }) => await Tag.findById(id);
 
-// Get Posts by User
-const getPostsByUser = async user => {
-  return await Post.findAll({
-    where: {
-      userId: user.id
-    }
-  });
-};
-
 module.exports = {
   allUsers,
   fetchUser,
   allPosts,
   fetchPost,
   allTags,
-  fetchTag,
-  getPostsByUser
+  fetchTag
 };

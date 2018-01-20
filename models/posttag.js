@@ -1,20 +1,22 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var PostTag = sequelize.define('PostTag', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
-    },
-    postId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    tagId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
-  });
-  return PostTag;
-};
+const { sequelize, Sequelize } = require('./connection');
+const PostTag = sequelize.define('PostTag', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
+  },
+  post_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  tag_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  }
+},
+{
+  underscored: true
+});
+
+module.exports = PostTag;

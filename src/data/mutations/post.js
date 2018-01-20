@@ -9,7 +9,7 @@ const addPost = async (_, { title, content, status, tags }, { authUser }) => {
   }
   const user = await User.findOne({ where: { id: authUser.id } });
   const post = await Post.create({
-    userId: user.id,
+    user_id: user.id,
     title,
     slug: slugify(title, { lower: true }),
     content,

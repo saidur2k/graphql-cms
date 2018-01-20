@@ -4,12 +4,12 @@ const typeDefs = `
     scalar DateTime
     type User {
         id: Int!
-        firstName: String!
-        lastName: String
+        first_name: String!
+        last_name: String
         email: String!
         posts: [Post]
-        createdAt: DateTime! # will be generated
-        updatedAt: DateTime! # will be generated
+        created_at: DateTime! # will be generated
+        updated_at: DateTime! # will be generated
     }
     type Post {
         id: Int!
@@ -19,8 +19,8 @@ const typeDefs = `
         status: Boolean!
         user: User!
         tags: [Tag!]!
-        createdAt: DateTime! # will be generated
-        updatedAt: DateTime! # will be generated
+        created_at: DateTime! # will be generated
+        updated_at: DateTime! # will be generated
     }
     type Tag {
         id: Int!
@@ -28,8 +28,8 @@ const typeDefs = `
         slug: String!
         description: String
         posts: [Post]
-        createdAt: DateTime! # will be generated
-        updatedAt: DateTime! # will be generated
+        created_at: DateTime! # will be generated
+        updated_at: DateTime! # will be generated
     }
     type Query {
         allUsers: [User]
@@ -45,15 +45,15 @@ const typeDefs = `
             password: String!
         ): String
         createUser (
-            firstName: String!,
-            lastName: String,
+            first_name: String!,
+            last_name: String,
             email: String!,
             password: String!
         ): User
         updateUser (
             id: Int!,
-            firstName: String!,
-            lastName: String,
+            first_name: String!,
+            last_name: String,
             email: String!,
             password: String!
         ): User
